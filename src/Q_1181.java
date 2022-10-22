@@ -26,7 +26,7 @@ public class Q_1181 {
 		 * 단, 같은 단어가 여러 번 입력된 경우에는 한 번씩만 출력한다
 		 *  
 		 *  예제입력 ) 
-		    13
+		    	13
 			but
 			i
 			wont
@@ -42,7 +42,7 @@ public class Q_1181 {
 			yours
 		   
 		 * 예제출력 ) 
-		    i
+		   	 i
 			im
 			it
 			no

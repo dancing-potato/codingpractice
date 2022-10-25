@@ -1,9 +1,13 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Q_2822 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception  {
 		/*
-		 * 
 		  상근이는 퀴즈쇼의 PD이다. 이 퀴즈쇼의 참가자는 총 8개 문제를 푼다. 
 		  참가자는 각 문제를 풀고, 
 		  그 문제를 풀었을 때 얻는 점수는 문제를 풀기 시작한 시간부터 
@@ -23,7 +27,43 @@ public class Q_2822 {
 		  첫째 줄에 참가자의 총점을 출력한다. 
 		  둘째 줄에는 어떤 문제가 최종 점수에 포함되는지를 공백으로 구분하여 출력한다. 
 		  출력은 문제 번호가 증가하는 순서이어야 한다.
+		  
+		  
 		 */
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		
+		int[] score = new int[151];
+		
+		for (int i = 1; i <= 8; i++) {
+			int num = Integer.parseInt(br.readLine());
+			
+			score[num] = i;
+		}
+		
+		int cnt = 5;
+		int total = 0;
+		
+		List<Integer> num = new ArrayList<>();
+		
+		for (int i = 150; i > 0; i--) {
+			if(score[i] != 0) {
+				total += i;
+				cnt--;
+				num.add(score[i]);
+			}
+			if(cnt==0) break;
+		}
+		
+		Collections.sort(num);		
+		for (int i = 0; i < 5; i++) {
+			sb.append(num.get(i) + " ");
+		}
+		
+		System.out.println(total);
+		System.out.println(sb);
+
+		
 	}
 
 }
